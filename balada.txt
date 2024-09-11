@@ -1,0 +1,52 @@
+
+Funcionario
+> id
+> nome
+> data_nascimento
+
+
+Evento
+> id
+> nome
+> data_hora_inicio
+> data_hora_fim
+
+Lote
+> id
+> evento_id
+> valor
+> qtde
+
+Ingresso
+> id
+> lote_id (fk)
+
+
+Atração
+> id
+> nome
+
+
+Evento_Atração
+> evento_id
+> atracao_id
+
+
+Funcionario_evento
+> funcionario_id
+> evento_id
+> data_hora_entrada
+> data_hora_inicio
+
+
+
+
+
+
+
+
+
+
+
+
+
