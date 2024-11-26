@@ -85,7 +85,8 @@ A tabela da figura está na 1FN porque todos os seus atributos são atômicos e 
 
 Para eliminar dependências transitivas, deve-se criar uma nova tabela que irá conter o atributo que depende (ex: **nome_gerente**) mais o atributo do qual ele é dependente (ex: **codigo_gerente**). A figura abaixo mostra como ficaria o modelo.
 
-![image](https://github.com/user-attachments/assets/a5ba4712-426c-46b9-bcf1-e49904e97964)
+![image](https://github.com/user-attachments/assets/dc731f58-3564-47a8-96d0-f70b6042ec69)
+
 
 É interessante sempre aplicarmos as três formas normais ao nosso modelo relacional antes de implementar esse modelo no SGBD.
 
