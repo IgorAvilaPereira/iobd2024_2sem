@@ -42,7 +42,7 @@ Os grupos repetidos de dados ocorrem quando uma tabela aparece dentro de outra t
 
 A figura abaixo mostra como ficaria o modelo original (não normalizado) após aplicarmos a 1FN.
 
-![image](https://github.com/user-attachments/assets/82efd61a-3d6f-495b-9350-779ff70c1ca5)
+![image](https://github.com/user-attachments/assets/12ac376c-ce68-4108-bd2d-786b1e308951)
 
 ## Segunda Forma Normal (2FN)
 
