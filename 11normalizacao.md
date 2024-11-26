@@ -67,7 +67,7 @@ Para deixarmos o modelo na 2FN devemos:
 Como ficaria o modelo após aplicarmos a 2FN.
 
 
-![image](https://github.com/user-attachments/assets/5943af33-b83d-4f1d-a7b5-a8bc5cd667a4)
+![image](https://github.com/user-attachments/assets/36a3b79c-9623-4b4a-8df4-001f87454c15)
 
 ## Terceira Forma Normal (3FN)
 
