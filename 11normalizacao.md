@@ -78,7 +78,7 @@ Uma tabela está na 3FN se estiver na 2FN e ela não possuir dependência transi
 Como no modelo do exemplo não existem dependências transitivas, ele já está na 3FN. No entanto, para entermos melhor dependências transitivas, vamos supor a situação da figura abaixo.
 
 
-![image](https://github.com/user-attachments/assets/b629688e-0dd9-47d9-bf6b-eceb925e9652)
+![image](https://github.com/user-attachments/assets/bb6a1b6c-5a02-458d-af9d-11210e294299)
 
 
 A tabela da figura está na 1FN porque todos os seus atributos são atômicos e está na 2FN porque não tem chave primária composta. No entanto, temos uma dependência transitiva que ocorre com o atributo **nome_gerente** que depende do atributo **codigo_gerente** que não é chave e nem faz parte da chave primária.
