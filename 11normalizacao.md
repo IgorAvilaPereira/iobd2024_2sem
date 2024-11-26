@@ -24,7 +24,7 @@ No entanto, para a maioria das bases de dados, a aplicação até a 3FN é sufic
 
 A tabela **tbPedido** será utilizada para demonstrar o processo de normalização.
 
-![image](https://github.com/user-attachments/assets/87624dff-dfaf-4285-afd8-f68cfefa5018)
+![image](https://github.com/user-attachments/assets/a712aab9-2082-49c0-a4b8-1fbc6581d134)
 
 ## Primeira Forma Normal (1FN)
 
