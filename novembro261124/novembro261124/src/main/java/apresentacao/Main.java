@@ -22,8 +22,8 @@ import persistencia.VeiculoDAO;
  * @author iapereira
  */
 public class Main {
-    
-    public static void exibeFoto(byte[] foto){    
+
+    public static void exibeFoto(byte[] foto) {
         JFrame jFrame = new JFrame();
         jFrame.setLayout(new FlowLayout());
         jFrame.setSize(500, 400);
@@ -32,40 +32,43 @@ public class Main {
         jFrame.setVisible(true);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
-    
+
     public static void main(String[] args) throws SQLException, IOException {
         Scanner entrada = new Scanner(System.in);
         System.out.println("Username:");
         String username = entrada.nextLine();
-        System.out.println("Password;");
-        String password = entrada.nextLine(); 
+        System.out.println("Password:");
+        String password = entrada.nextLine();
         ConexaoPostgreSQL.username = username;
-        ConexaoPostgreSQL.password = password;        
+        ConexaoPostgreSQL.password = password;
         VeiculoDAO veiculoDAO = new VeiculoDAO();
-        Veiculo v = veiculoDAO.obter(14);
-        v.getFotos().remove(0);
-        veiculoDAO.atualizar(v);
-//        veiculoDAO.deletar(5);
+
+//      inserir
+        Veiculo veiculoNovo = new Veiculo();
+        veiculoNovo.setAno(2024);
+        veiculoNovo.setPlaca("IXO1234");
+        veiculoNovo.getFotos().add(new Foto("/home/iapereira/foto1.png"));
+        veiculoNovo.getFotos().add(new Foto("/home/iapereira/foto2.png"));
+        veiculoDAO.inserir(veiculoNovo);
+
+//        atualizar
+//        Veiculo v = veiculoDAO.obter(14);
+//        v.getFotos().remove(0);
+//        veiculoDAO.atualizar(v);
+
+//        listar
 //        ArrayList<Veiculo> veiculos = veiculoDAO.listar();
 //        for (int i = 0; i < veiculos.size(); i++) {
 //            Veiculo veiculo = veiculos.get(i);
 //            System.out.println(veiculo.getPlaca());
 //            if (!veiculo.getFotos().isEmpty()){
 //                exibeFoto(veiculo.getFotos().get(0).getArquivo());
-//            }
-////            
+//            } 
 //        }
-//        Veiculo veiculoNovo = new Veiculo();
-//        veiculoNovo.setAno(2024);
-//        veiculoNovo.setPlaca("IXO1234");
-//        veiculoNovo.getFotos().add(new Foto("/home/iapereira/foto1.png"));
-//        veiculoNovo.getFotos().add(new Foto("/home/iapereira/foto2.png"));
-//        veiculoDAO.inserir(veiculoNovo);
+//        deletar    
+//        veiculoDAO.deletar(5);
 
-
-            
-        
-       
+//        atualizar       
 //        Veiculo veiculo = veiculoDAO.obter(4);
 //        veiculo.setFotos(new ArrayList());
 //        veiculo.getFotos().add(new Foto("/home/iapereira/brasilia.png"));
@@ -73,22 +76,6 @@ public class Main {
 //        exibeFoto(veiculo.getFotos().get(0).getArquivo());        
 //        exibeFoto(veiculo.getFotos().get(1).getArquivo());
 //        veiculoDAO.atualizar(veiculo);
-        
-//        Veiculo veiculoNovo = new Veiculo();
-//        veiculoNovo.setAno(2024);
-//        veiculoNovo.setPlaca("IGO1234");
-//        veiculoNovo.getFotos().add(new Foto("/home/iapereira/uno_de_firma.jpeg"));
-//        veiculoDAO.inserir(veiculoNovo);
-//        System.out.println(veiculoNovo.getId());
-        
-//        
-//        ArrayList<Veiculo> veiculos = veiculoDAO.listar();
-//        
-//        for (int i = 0; i < veiculos.size(); i++) {
-//            
-//            System.out.println(veiculos.get(i));
-//        }
-//        
     }
-    
+
 }
