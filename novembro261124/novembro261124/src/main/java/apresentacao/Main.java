@@ -52,9 +52,9 @@ public class Main {
         veiculoDAO.inserir(veiculoNovo);
 
 //        atualizar
-//        Veiculo v = veiculoDAO.obter(14);
-//        v.getFotos().remove(0);
-//        veiculoDAO.atualizar(v);
+        Veiculo v = veiculoDAO.obter(4);
+        v.getFotos().remove(0);
+        veiculoDAO.atualizar(v);
 
 //        listar
 //        ArrayList<Veiculo> veiculos = veiculoDAO.listar();
