@@ -35,16 +35,11 @@ public class VeiculoDAO {
 
 //        o resultado da consulta "cai" em REsult set
         ResultSet rs = preparedStatement.executeQuery();
-
-//        System.out.println("aqui");
-
 //        para cada tupla retornada
         if (rs.next()) {
-//            System.out.println("entrei");
             veiculo.setId(rs.getInt("id"));
             veiculo.setAno(rs.getInt("ano"));
             veiculo.setPlaca(rs.getString("placa"));
-//            veiculo.setFoto(rs.getBytes("foto"));
         }
         conexao.close();
 
@@ -70,9 +65,6 @@ public class VeiculoDAO {
             veiculo.setAno(rs.getInt("ano"));
             veiculo.setPlaca(rs.getString("placa"));
             veiculo.setFotos(this.fotoDAO.obterFotosPorVeiculo(veiculo));
-
-//            veiculo.setFoto(rs.getBytes("foto"));
-//            coloando o novo objeto (tupla) no vetor de objetos de veiculo
             vet.add(veiculo);
         }
         conexao.close();
@@ -99,27 +91,25 @@ public class VeiculoDAO {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, veiculo.getPlaca());
         preparedStatement.setInt(2, veiculo.getAno());
-//        preparedStatement.setBytes(3, veiculo.getFoto());
         preparedStatement.setInt(3, veiculo.getId());
         int linhasAfetadas = preparedStatement.executeUpdate();
         preparedStatement.close();
         connection.close();
         if (linhasAfetadas == 1) {
             if (!veiculo.getFotos().isEmpty()) {
-                
                 connection = new ConexaoPostgreSQL().getConexao();
                 String sqlAux = "DELETE FROM foto where veiculo_id = ? and id not in(";
                 for (int i = 0; i < veiculo.getFotos().size(); i++) {
-                    sqlAux+= veiculo.getFotos().get(i).getId()+",";
+                    sqlAux += veiculo.getFotos().get(i).getId() + ",";                    
                 }
-                sqlAux+= ")";
-                String sqlDelete = sqlAux.replace(",)", ")");  
+                sqlAux += ")";
+                String sqlDelete = sqlAux.replace(",)", ")");
                 PreparedStatement preparedStatementDelete = connection.prepareStatement(sqlDelete);
                 preparedStatementDelete.setInt(1, veiculo.getId());
                 preparedStatementDelete.executeUpdate();
                 preparedStatement.close();
                 connection.close();
-                
+
                 for (int i = 0; i < veiculo.getFotos().size(); i++) {
                     if (veiculo.getFotos().get(i).getId() != 0) {
                         this.fotoDAO.atualizar(veiculo.getFotos().get(i));
@@ -142,7 +132,6 @@ public class VeiculoDAO {
         PreparedStatement preparedStatement = connection.prepareStatement(sql);
         preparedStatement.setString(1, veiculo.getPlaca());
         preparedStatement.setInt(2, veiculo.getAno());
-//        preparedStatement.setBytes(3, veiculo.getFoto());
         ResultSet rs = preparedStatement.executeQuery();
         if (rs.next()) {
             veiculo.setId(rs.getInt("id"));
