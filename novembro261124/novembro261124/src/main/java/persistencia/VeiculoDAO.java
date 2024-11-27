@@ -36,11 +36,11 @@ public class VeiculoDAO {
 //        o resultado da consulta "cai" em REsult set
         ResultSet rs = preparedStatement.executeQuery();
 
-        System.out.println("aqui");
+//        System.out.println("aqui");
 
 //        para cada tupla retornada
         if (rs.next()) {
-            System.out.println("entrei");
+//            System.out.println("entrei");
             veiculo.setId(rs.getInt("id"));
             veiculo.setAno(rs.getInt("ano"));
             veiculo.setPlaca(rs.getString("placa"));
