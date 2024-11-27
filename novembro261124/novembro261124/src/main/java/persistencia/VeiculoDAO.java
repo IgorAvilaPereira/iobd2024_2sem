@@ -108,13 +108,14 @@ public class VeiculoDAO {
             if (!veiculo.getFotos().isEmpty()) {
                 
                 connection = new ConexaoPostgreSQL().getConexao();
-                String sqlAux = "DELETE FROM foto where id not in(";
+                String sqlAux = "DELETE FROM foto where veiculo_id = ? and id not in(";
                 for (int i = 0; i < veiculo.getFotos().size(); i++) {
                     sqlAux+= veiculo.getFotos().get(i).getId()+",";
                 }
                 sqlAux+= ")";
                 String sqlDelete = sqlAux.replace(",)", ")");  
                 PreparedStatement preparedStatementDelete = connection.prepareStatement(sqlDelete);
+                preparedStatementDelete.setInt(1, veiculo.getId());
                 preparedStatementDelete.executeUpdate();
                 preparedStatement.close();
                 connection.close();
