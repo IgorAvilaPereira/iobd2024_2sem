@@ -8,7 +8,7 @@ CREATE DATABASE novembro;
 CREATE TABLE veiculo (
     id SERIAL PRIMARY KEY,
     placa VARCHAR(10),
-    foto bytea, 
+    -- foto bytea, 
     ano INT
 );
 
@@ -19,6 +19,12 @@ CREATE TABLE carro (
 CREATE TABLE moto (
     cilindradas INT
 ) INHERITS (veiculo);
+
+CREATE TABLE foto (
+    id serial primary key,
+    arquivo bytea,
+    veiculo_id integer references veiculo (id)
+);
 
 
 
@@ -35,3 +41,4 @@ SELECT * FROM veiculo;
 
 -- Consultar dados apenas da superclasse
 SELECT * FROM ONLY veiculo;
+
