@@ -26,9 +26,10 @@ INSERT INTO dados_json(dados) values ('{"nome": "Igor", "email": "emaildoigor@mi
 
 -- trabalho select com coluna json
 SELECT dados ->> 'nome' FROM dados_json;
+SELECT dados -> 'nome' FROM dados_json;
 SELECT * FROM dados_json where dados ->> 'nome' = 'Igor';
-CREATE VIEW igor_lindo AS SELECT * FROM dados_json where dados ->> 'nome' = 'Igor';CREATE VIEW
-SELECT * FROM igor_lindo;
+CREATE VIEW visao AS SELECT * FROM dados_json where dados ->> 'nome' = 'Igor';
+SELECT * FROM visao;
 
 -- add nova propriedae
 UPDATE dados_json
