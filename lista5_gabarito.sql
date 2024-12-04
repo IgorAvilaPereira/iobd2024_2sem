@@ -31,7 +31,7 @@ SELECT * FROM dados_json where dados ->> 'nome' = 'Igor';
 CREATE VIEW visao AS SELECT * FROM dados_json where dados ->> 'nome' = 'Igor';
 SELECT * FROM visao;
 
--- add nova propriedae
+-- add nova propriedade
 UPDATE dados_json
 SET dados = dados::jsonb || '{"cidade": "Rio Grande"}'::jsonb WHERE id = 1;
 
